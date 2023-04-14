@@ -8,35 +8,56 @@
 import SwiftUI
 
 struct SecondView: View{
-    var body: some View{
-        ZStack{
-            BackgroundView()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-            VStack{
-                VStack(alignment: .leading) {
-                    Text("What is recursion?")
-                        .font(.custom("Apple SD Gothic Neo", size: 55))
-                        .fontWeight(.bold)
-                    
-                    (Text("To begin with, let's define what recursion is.\n") + Text("Recursion").bold() + Text(" is a programming technique in which a function calls itself, allowing it to solve a problem iteratively, that is, repetitively, dividing it into smaller subproblems. This allows the problem solution to be built from the solutions of smaller subproblems."))
-                        .font(.custom("Apple SD Gothic Neo", size: 35))
-                    
-                }
-                .padding(.top, 90)
-                
-//                Spacer()
+    @State private var path = NavigationPath()
+    
+    var body: some View {
+        NavigationStack(path: $path) {
+            ZStack{
+                BackgroundView()
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 
                 VStack{
-                    RecursiveImageBrowserView()
+                    VStack(alignment: .leading) {
+                        Text("What is recursion?")
+                            .font(.custom("Apple SD Gothic Neo", size: 55))
+                            .fontWeight(.bold)
+                        
+                        (Text("To begin with, let's define what recursion is.\n") + Text("Recursion").bold() + Text(" is a programming technique in which a function calls itself, allowing it to solve a problem iteratively, that is, repetitively, dividing it into smaller subproblems. This allows the problem solution to be built from the solutions of smaller subproblems."))
+                            .font(.custom("Apple SD Gothic Neo", size: 35))
+                        
+                    }
+//                    .padding(.top, 90)
                     
+//                                    Spacer()
+                    
+//                    VStack{
+                        RecursiveImageBrowserView()
+                        
+                        Button {
+                            path.append("ThirdView")
+                        } label: {
+                            Text("Let's go!")
+                                .font(.custom("Apple SD Gothic Neo", size: 45))
+                                .fontWeight(.black)
+                                .foregroundColor(.white)
+                                .frame(width: 245.0, height: 80)
+                        }
+                        .background(Color(red: 0.527, green: 0.841, blue: 0.408))
+                        .cornerRadius(10)
+                        .padding(.top, 200)
+                        .navigationDestination(for: String.self) { view in
+                            if view == "ThirdView"{
+                                ThirdView()
+                            }
+                        }
+//                    }
+//                    .padding(.top, 40)
                 }
-                .padding(.top, 40)
-                
-                Spacer()
+                .padding(.horizontal, 70)
             }
-            .padding(.horizontal, 70)
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
+        
     }
     
 }
@@ -63,7 +84,7 @@ struct RecursiveImageBrowserView: View {
                 .onAppear{
                     self.opacity1 = 1.0
                 }
-
+            
             recursiveImageBrowser
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
@@ -75,7 +96,7 @@ struct RecursiveImageBrowserView: View {
                 .onAppear{
                     self.opacity2 = 1.0
                 }
-
+            
             recursiveImageBrowser
                 .overlay(
                     RoundedRectangle(cornerRadius: 6)
@@ -87,7 +108,7 @@ struct RecursiveImageBrowserView: View {
                 .onAppear{
                     self.opacity3 = 1.0
                 }
-
+            
             recursiveImageBrowser
                 .overlay(
                     RoundedRectangle(cornerRadius: 4)
@@ -110,7 +131,7 @@ struct BackgroundView: View {
             .aspectRatio(contentMode: .fill)
             .rotationEffect(Angle(degrees: 180))
             .offset(x: -550)
-//            .ignoresSafeArea()
+        //            .ignoresSafeArea()
     }
 }
 
