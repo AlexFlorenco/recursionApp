@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var path = NavigationPath()
+    @State private var path = NavigationPath()
     
     var body: some View {
         NavigationStack(path: $path) {
