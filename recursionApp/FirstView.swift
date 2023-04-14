@@ -1,14 +1,15 @@
 //
-//  InitialView.swift
+//  ContentView.swift
 //  recursionApp
 //
-//  Created by Alexandre Florenço on 12/04/23.
+//  Created by Alexandre Florenço on 11/04/23.
 //
 
 import SwiftUI
 
-struct InitialView: View {
+struct FirstView: View {
     var body: some View {
+        ZStack{
             ZStack{
                 Image("background")
                     .resizable()
@@ -42,7 +43,34 @@ struct InitialView: View {
                     }
                     .frame(width: 800, height: 600)
                     .padding(.bottom, 200)
+    
+                    NavigationLink(destination: SecondView()){
+                        ButtonView(content: "Let's go!")
+                    }
                 }
             }
         }
+    }
+}
+
+struct ButtonView: View {
+    var content: String
+    var body: some View {
+        Text(content)
+            .font(.custom("Apple SD Gothic Neo", size: 45))
+            .fontWeight(.black)
+            .foregroundColor(.white)
+            .frame(width: 245.0, height: 80)
+            .background(Color(red: 0.527, green: 0.841, blue: 0.408))
+            .cornerRadius(10)
+            .padding(.top, 200)
+    }
+}
+
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        FirstView()
+    }
 }

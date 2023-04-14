@@ -44,7 +44,7 @@ struct ThirdView: View{
             }
             .padding(.horizontal, 70)
         }
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(false)
     }
     
 }

@@ -11,7 +11,7 @@ struct SecondView: View{
     @State private var path = NavigationPath()
     
     var body: some View {
-        NavigationStack(path: $path) {
+        
             ZStack{
                 BackgroundView()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -26,42 +26,32 @@ struct SecondView: View{
                             .font(.custom("Apple SD Gothic Neo", size: 35))
                         
                     }
-//                    .padding(.top, 90)
+                    //                    .padding(.top, 90)
                     
-//                                    Spacer()
+                    //                                    Spacer()
                     
-//                    VStack{
-                        RecursiveImageBrowserView()
-                        
-                        Button {
-                            path.append("ThirdView")
-                        } label: {
-                            Text("Let's go!")
-                                .font(.custom("Apple SD Gothic Neo", size: 45))
-                                .fontWeight(.black)
-                                .foregroundColor(.white)
-                                .frame(width: 245.0, height: 80)
+                    //                    VStack{
+                    RecursiveImageBrowserView()
+                    
+                    HStack{
+                        NavigationLink(destination: FirstView()){
+                            ButtonView(content: "Back")
                         }
-                        .background(Color(red: 0.527, green: 0.841, blue: 0.408))
-                        .cornerRadius(10)
-                        .padding(.top, 200)
-                        .navigationDestination(for: String.self) { view in
-                            if view == "ThirdView"{
-                                ThirdView()
-                            }
+
+                        NavigationLink(destination: ThirdView()){
+                            ButtonView(content: "Next")
                         }
-//                    }
-//                    .padding(.top, 40)
+                    }
+                    
                 }
+                .padding(.top, 40)
                 .padding(.horizontal, 70)
             }
-            .navigationBarBackButtonHidden(true)
+                            .navigationBarBackButtonHidden(false)
         }
-        
+//        navigationViewStyle(StackNavigationViewStyle())
     }
-    
-}
-
+        
 struct RecursiveImageBrowserView: View {
     @State private var opacity1: Double = 0
     @State private var opacity2: Double = 0
