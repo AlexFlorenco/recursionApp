@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA24D8FF29E8C404000A78FD /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA24D8FE29E8C404000A78FD /* ThirdView.swift */; };
 		FA66F17029E60B7F001C2F4B /* recursionAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66F16F29E60B7F001C2F4B /* recursionAppApp.swift */; };
 		FA66F17229E60B7F001C2F4B /* MaintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66F17129E60B7F001C2F4B /* MaintView.swift */; };
 		FA66F17429E60B81001C2F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA66F17329E60B81001C2F4B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA24D8FE29E8C404000A78FD /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
 		FA66F16C29E60B7F001C2F4B /* recursionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recursionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA66F16F29E60B7F001C2F4B /* recursionAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recursionAppApp.swift; sourceTree = "<group>"; };
 		FA66F17129E60B7F001C2F4B /* MaintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				FA66F17529E60B81001C2F4B /* Preview Content */,
 				FAAE627A29E6F3940037DBD3 /* InitialView.swift */,
 				FAAE627C29E6F4D70037DBD3 /* SecondView.swift */,
+				FA24D8FE29E8C404000A78FD /* ThirdView.swift */,
 			);
 			path = recursionApp;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAE627B29E6F3940037DBD3 /* InitialView.swift in Sources */,
+				FA24D8FF29E8C404000A78FD /* ThirdView.swift in Sources */,
 				FA66F17229E60B7F001C2F4B /* MaintView.swift in Sources */,
 				FAAE627D29E6F4D70037DBD3 /* SecondView.swift in Sources */,
 				FA66F17029E60B7F001C2F4B /* recursionAppApp.swift in Sources */,
