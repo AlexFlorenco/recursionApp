@@ -8,50 +8,44 @@
 import SwiftUI
 
 struct SecondView: View{
-    @State private var path = NavigationPath()
-    
-    var body: some View {
-        
-            ZStack{
-                BackgroundView()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                
-                VStack{
-                    VStack(alignment: .leading) {
-                        Text("What is recursion?")
-                            .font(.custom("Apple SD Gothic Neo", size: 55))
-                            .fontWeight(.bold)
-                        
-                        (Text("To begin with, let's define what recursion is.\n") + Text("Recursion").bold() + Text(" is a programming technique in which a function calls itself, allowing it to solve a problem iteratively, that is, repetitively, dividing it into smaller subproblems. This allows the problem solution to be built from the solutions of smaller subproblems."))
-                            .font(.custom("Apple SD Gothic Neo", size: 35))
-                        
-                    }
-                    //                    .padding(.top, 90)
-                    
-                    //                                    Spacer()
-                    
-                    //                    VStack{
-                    RecursiveImageBrowserView()
-                    
-                    HStack{
-                        NavigationLink(destination: FirstView()){
-                            ButtonView(content: "Back")
-                        }
+    @Environment(\.dismiss) private var dismiss
 
-                        NavigationLink(destination: ThirdView()){
-                            ButtonView(content: "Next")
-                        }
-                    }
-                    
+    var body: some View {
+        VStack{
+            Text("What is Recursion?")
+                .frame(width: 800, alignment: .leading)
+                .font(.custom("Apple SD Gothic Neo", size: 60))
+                .fontWeight(.bold)
+            
+            Text("To begin with, let's define what recursion. \(Text("Recursion").bold()) is a programming technique in which a function calls itself, allowing it to solve a problem iteratively, that is, repetitively, dividing it into smaller subproblems. This allows the problem solution to be built from the solutions of smaller subproblems.")
+                .frame(width: 800, height: 350)
+                .font(.custom("Apple SD Gothic Neo", size: 40))
+            
+            RecursiveImageBrowserView()
+                .padding(.top, 50)
+            
+            Spacer()
+            
+            HStack{
+                Button{
+                    dismiss()
+                } label: {
+                    ButtonView(content: "Back")
                 }
-                .padding(.top, 40)
-                .padding(.horizontal, 70)
+                
+                NavigationLink(destination: ThirdView()){
+                    ButtonView(content: "Next")
+                }
             }
-                            .navigationBarBackButtonHidden(false)
+            .padding(.bottom, 30)
+            
         }
-//        navigationViewStyle(StackNavigationViewStyle())
+        .padding(.top, 60)
+        .navigationBarBackButtonHidden(true)
+        .background(BackgroundView())
     }
-        
+}
+
 struct RecursiveImageBrowserView: View {
     @State private var opacity1: Double = 0
     @State private var opacity2: Double = 0
@@ -113,19 +107,6 @@ struct RecursiveImageBrowserView: View {
         }
     }
 }
-
-struct BackgroundView: View {
-    var body: some View {
-        Image("background")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .rotationEffect(Angle(degrees: 180))
-            .offset(x: -550)
-        //            .ignoresSafeArea()
-    }
-}
-
-
 
 struct SecondView_Previews: PreviewProvider {
     static var previews: some View {
