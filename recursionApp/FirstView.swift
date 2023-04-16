@@ -27,7 +27,7 @@ struct FirstView: View {
                 .padding(.bottom, 40)
             
             NavigationLink(destination: SecondView()){
-                ButtonView(content: "Let's go!")
+                PaginationButtonView(content: "Let's go!")
             }
             
             HStack(alignment: .bottom){

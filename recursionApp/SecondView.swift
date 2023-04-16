@@ -30,11 +30,11 @@ struct SecondView: View{
                 Button{
                     dismiss()
                 } label: {
-                    ButtonView(content: "Back")
+                    PaginationButtonView(content: "Back")
                 }
                 
                 NavigationLink(destination: ThirdView()){
-                    ButtonView(content: "Next")
+                    PaginationButtonView(content: "Next")
                 }
             }
             .padding(.bottom, 30)
