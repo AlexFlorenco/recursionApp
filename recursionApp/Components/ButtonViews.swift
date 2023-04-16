@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonView: View {
+struct PaginationButtonView: View {
     var content: String
     var body: some View {
         Text(content)
@@ -20,8 +20,22 @@ struct ButtonView: View {
     }
 }
 
-struct ButtonView_Previews: PreviewProvider {
+struct StepButtonView: View {
+    var iconButton: String
+    var color: Color
+    
+    var body: some View{
+        Image(systemName: iconButton)
+            .foregroundColor(.white)
+            .padding(.horizontal)
+            .padding(.vertical, 5)
+            .background(color)
+            .cornerRadius(40)
+    }
+}
+
+struct ButtonViews_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(content: "Label")
+        PaginationButtonView(content: "Label")
     }
 }
