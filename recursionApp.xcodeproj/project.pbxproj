@@ -66,9 +66,9 @@
 				FA66F17129E60B7F001C2F4B /* FirstView.swift */,
 				FAAE627C29E6F4D70037DBD3 /* SecondView.swift */,
 				FA24D8FE29E8C404000A78FD /* ThirdView.swift */,
+				FAAC4C0B29EB108C00FC275F /* FourthView.swift */,
 				FA66F17329E60B81001C2F4B /* Assets.xcassets */,
 				FA66F17529E60B81001C2F4B /* Preview Content */,
-				FAAC4C0B29EB108C00FC275F /* FourthView.swift */,
 			);
 			path = recursionApp;
 			sourceTree = "<group>";
