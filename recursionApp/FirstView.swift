@@ -9,30 +9,42 @@ import SwiftUI
 
 struct FirstView: View {
     @State private var bouncing: Bool = false
+    @State private var pulsate: Bool = false
     
     var body: some View {
         VStack{
             Spacer()
             
             Text("Welcome to the Recursion Tour!")
-                .frame(width: 800, height: 200)
-                .font(.custom("Apple SD Gothic Neo", size: 70))
+                .multilineTextAlignment(.center)
+                .font(.custom("Apple SD Gothic Neo", size: UIScreen.main.bounds.width * 0.113))
+                .minimumScaleFactor(0.05)
                 .fontWeight(.heavy)
             
-            Text("Let's explore the concept of recursion, which is a very important programming technique used to solve problems that can be broken down into smaller subproblems.")
-                .frame(width: 800, height: 300, alignment: .center)
+            Text("Let's explore the concept of recursion, this very important programming technique used to solve large problems by breaking them down into smaller subproblems.")
                 .multilineTextAlignment(.center)
-                .font(.custom("Apple SD Gothic Neo", size: 50))
+                .font(.custom("Apple SD Gothic Neo", size: UIScreen.main.bounds.width * 0.05))
+                .minimumScaleFactor(0.01)
                 .fontWeight(.medium)
                 .padding(.bottom, 40)
             
             NavigationLink(destination: SecondView()){
                 PaginationButtonView(content: "Let's go!")
+                    .scaleEffect(pulsate ? 0.8 : 1)
+                    .animation(.linear(duration: 1).repeatForever().speed(1), value: pulsate)
+                    .onAppear() {
+                        self.pulsate.toggle()
+                    }
+                    
             }
+            
+            Spacer()
             
             HStack(alignment: .bottom){
                 Image("matryoshka 1")
-                    .frame(maxHeight: 450, alignment: .bottom)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: UIScreen.main.bounds.width * 0.35)
                     .offset(y: bouncing ? -50 : 0)
                     .animation(Animation.easeInOut(duration: 0.5)
                         .repeatForever()
@@ -42,7 +54,9 @@ struct FirstView: View {
                         self.bouncing.toggle()
                     }
                 Image("matryoshka 2")
-                    .frame(maxHeight: 450, alignment: .bottom)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: UIScreen.main.bounds.width * 0.25)
                     .offset(y: bouncing ? -50 : 0)
                     .animation(Animation.easeInOut(duration: 0.5)
                         .repeatForever()
@@ -52,7 +66,9 @@ struct FirstView: View {
                         self.bouncing.toggle()
                     }
                 Image("matryoshka 3")
-                    .frame(maxHeight: 450, alignment: .bottom)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: UIScreen.main.bounds.width * 0.2)
                     .offset(y: bouncing ? -50 : 0)
                     .animation(Animation.easeInOut(duration: 0.5)
                         .repeatForever()
@@ -62,9 +78,10 @@ struct FirstView: View {
                         self.bouncing.toggle()
                     }
             }
-            .frame(width: 500)
-            
+            .frame(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.height * 0.2, alignment: .bottom)
         }
+        
+        .frame(width: UIScreen.main.bounds.width * 0.8)
         .background(BackgroundView())
     }
 }

@@ -11,19 +11,22 @@ struct SecondView: View{
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        VStack{
-            Text("What is Recursion?")
-                .frame(width: 800, alignment: .leading)
-                .font(.custom("Apple SD Gothic Neo", size: 60))
+        VStack {
+            Text("To begin with, let's define what recursion is.")
+                .font(.custom("Apple SD Gothic Neo", size: UIScreen.main.bounds.width * 0.05))
+                .minimumScaleFactor(0.05)
                 .fontWeight(.bold)
+                .padding(.bottom, 1)
             
-            Text("To begin with, let's define what recursion. \(Text("Recursion").bold()) is a programming technique in which a function calls itself, allowing it to solve a problem iteratively, that is, repetitively, dividing it into smaller subproblems. This allows the problem solution to be built from the solutions of smaller subproblems.")
-                .frame(width: 800, height: 350)
-                .font(.custom("Apple SD Gothic Neo", size: 40))
-            
+            Text("Recursion is like a loop, but instead of repeating a series of statements, it calls itself inside itself, allowing it to solve a problem iteratively, that is, repetitively.\n\nIt is useful when you need to repeat a certain process several times, as it allows the problem solution to be built from the solutions of smaller subproblems.")
+//                .frame(width: 800, height: 350)
+                .font(.custom("Apple SD Gothic Neo", size: UIScreen.main.bounds.width * 0.04))
+                .minimumScaleFactor(0.01)
+            Spacer()
             RecursiveImageBrowserView()
-                .padding(.top, 50)
-            
+//                .frame(height: UIScreen.main.bounds.width * 0.45)
+//                .scaleEffect(UIScreen.main.bounds.width * 0.0010)
+
             Spacer()
             
             HStack{
@@ -31,16 +34,17 @@ struct SecondView: View{
                     dismiss()
                 } label: {
                     PaginationButtonView(content: "Back")
+                        .scaleEffect(0.8)
                 }
                 
                 NavigationLink(destination: ThirdView()){
                     PaginationButtonView(content: "Next")
+                        .scaleEffect(0.8)
                 }
             }
-            .padding(.bottom, 30)
-            
         }
-        .padding(.top, 60)
+        .frame(width: UIScreen.main.bounds.width * 0.8)
+//        .padding(.top, 60)
         .navigationBarBackButtonHidden(true)
         .background(BackgroundView())
     }
@@ -63,7 +67,9 @@ struct RecursiveImageBrowserView: View {
                         .stroke(.gray, lineWidth: 1.5))
                 .opacity(opacity1)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(width: 636, height: 446)
+                .aspectRatio(contentMode: .fit)
+//                .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.3)
+
                 .animation(.easeIn(duration: 0.3).delay(0), value: opacity1)
                 .onAppear{
                     self.opacity1 = 1.0
@@ -75,7 +81,9 @@ struct RecursiveImageBrowserView: View {
                         .stroke(.gray, lineWidth: 1.5))
                 .opacity(opacity2)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                .frame(width: 477, height: 334.5)
+                .scaledToFit()
+                .scaleEffect(0.7)
+//                .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.3)
                 .animation(.easeIn(duration: 0.3).delay(0.3), value: opacity1)
                 .onAppear{
                     self.opacity2 = 1.0
@@ -87,7 +95,11 @@ struct RecursiveImageBrowserView: View {
                         .stroke(.gray, lineWidth: 1.5))
                 .opacity(opacity3)
                 .clipShape(RoundedRectangle(cornerRadius: 6))
-                .frame(width: 318, height: 223)
+                .scaledToFit()
+                .scaleEffect(0.4)
+//                .scaledToFit()
+
+//                .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.3)
                 .animation(.easeIn(duration: 0.3).delay(0.6), value: opacity1)
                 .onAppear{
                     self.opacity3 = 1.0
@@ -99,7 +111,10 @@ struct RecursiveImageBrowserView: View {
                         .stroke(.gray, lineWidth: 1.5))
                 .opacity(opacity4)
                 .clipShape(RoundedRectangle(cornerRadius: 4))
-                .frame(width: 159, height: 111.5)
+                .scaledToFit()
+                .scaleEffect(0.1)
+
+//                .frame(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.3)
                 .animation(.easeIn(duration: 0.3).delay(0.9), value: opacity1)
                 .onAppear{
                     self.opacity4 = 1.0

@@ -20,8 +20,7 @@ struct FactorialCardView: View {
             
             VStack {
                 Text("factorial(\(factorial))")
-                    .font(.largeTitle)
-                    .padding(.top)
+                    .font(.title2)
                 
                 Divider()
                     .frame(height: 2)
@@ -30,19 +29,21 @@ struct FactorialCardView: View {
                 Spacer()
                 if code == "1 * 1" || code == "1" || code == "2 * 1" || code == "2" || code == "3 * 2" || code == "6" || code == "4 * 6" || code == "24" || code == "5 * 24" || code == "120"{
                     Text("\(code)")
-                        .font(.largeTitle)
+                        .font(.title2)
                         .fontWeight(.heavy)
                         .foregroundColor(.green)
+                        .padding(.vertical)
                 }
                 else{
                     Text("\(code)")
-                        .font(.title)
+                        .font(.title3)
+                        .padding(.vertical)
                 }
                 
                 Spacer()
             }
             
         }
-        .aspectRatio(2/2, contentMode: .fit)
+        .aspectRatio(3/2, contentMode: .fit)
     }
 }

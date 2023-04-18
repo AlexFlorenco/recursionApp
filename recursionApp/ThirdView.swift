@@ -12,23 +12,14 @@ struct ThirdView: View{
     var body: some View{
         VStack{
             Text("The Three Laws of Recursion")
-                .frame(width: 800, alignment: .leading)
-                .padding(.top, 60)
-                .padding(.bottom, 30)
-                .font(.custom("Apple SD Gothic Neo", size: 60))
+                .font(.custom("Apple SD Gothic Neo", size: UIScreen.main.bounds.width * 0.05))
+                .minimumScaleFactor(0.05)
                 .fontWeight(.bold)
+                .padding(.bottom, 1)
             
-            Group{
-                Text("1. A recursive algorithm must have a base case;\n2. A recursive algorithm must change its state and move toward the base case;\n3. A recursive algorithm must call itself, recursively.\n")
-                
-                Text("First, a base case is the condition that allows the algorithm to stop recursing. A base case is typically a problem that is small enough to solve directly.\n")
-                
-                Text("A change of state means that some data that the algorithm is using is modified. Usually the data that represents our problem gets smaller in some way.\n")
-                
-                Text("The final law is that the algorithm must call itself. This is the very definition of recursion.")
-            }
-            .frame(width: 800)
-            .font(.custom("Apple SD Gothic Neo", size: 40))
+            Text("\(Text("1. A recursive algorithm must have a base case;").bold())\nA base case is the condition that allows the algorithm to stop the recursion. It is the point where the problem is small enough to be solved directly.\n\n\(Text("2. A recursive algorithm must change its state and move toward the base case;").bold())\nA change of state means that some data that the algorithm is using is modified.Typically, the data representing our problem gets smaller in some way.\n\n\(Text("3. A recursive algorithm must call itself, recursively.").bold())\nThe last law is that the algorithm must call itself. This is the very definition of recursion.")
+                .font(.custom("Apple SD Gothic Neo", size: UIScreen.main.bounds.width * 0.04))
+                .minimumScaleFactor(0.01)
             
             Spacer()
             
@@ -37,15 +28,16 @@ struct ThirdView: View{
                     dismiss()
                 } label: {
                     PaginationButtonView(content: "Back")
+                        .scaleEffect(0.8)
                 }
                 
                 NavigationLink(destination: FourthView()){
                     PaginationButtonView(content: "Next")
+                        .scaleEffect(0.8)
                 }
             }
-            .padding(.bottom, 30)
-            
         }
+        .frame(width: UIScreen.main.bounds.width * 0.8)
         .navigationBarBackButtonHidden(true)
         .background(BackgroundView())
     }
